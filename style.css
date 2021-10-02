@@ -9,6 +9,10 @@
   --black-color: #000000;
   --primary-border-color: #ececec;
   --secondary-border-color: #eeeeee;
+  --hero-bg-color: #c4c4c4;
+  --hero-bg-overlay: rgba(47, 48, 58, 0.4);
+  --icon-color: #afb1b8;
+  --icon-join-bg-color: rgba(255, 255, 255, 0.1);
 
   --padding-top: 94px;
   --padding-bottom: 94px;
@@ -146,6 +150,12 @@ img {
   font-weight: 500;
   line-height: 1.14;
   color: inherit;
+  fill: currentColor;
+  display: flex;
+  align-items: center;
+}
+.header-icon {
+  margin-right: 10px;
 }
 .site-nav-link:hover,
 .site-nav-link:focus,
@@ -155,13 +165,22 @@ img {
 }
 
 /* main */
-
+.overlay {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to right, var(--hero-bg-overlay), var(--hero-bg-overlay)),
+    url(./images/hero-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--hero-bg-color);
+}
 .hero {
   /* Чтобы видеть белый цвет текста */
   padding-top: 200px;
   padding-bottom: 200px;
 
-  background-color: var(--primary-bg-color);
   text-align: center;
 }
 .hero-title {
@@ -192,7 +211,16 @@ img {
   color: var(--secondary-text-color);
   background-color: var(--secondary-bg-color);
 }
-
+.quality-bg-icon {
+  background-color: #f5f4fa;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
 .quality-menu-title {
   margin-bottom: 10px;
 
@@ -224,6 +252,7 @@ img {
   background-color: var(--secondary-bg-color);
 }
 .team-menu > .flex-item {
+  background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -243,11 +272,80 @@ img {
   color: var(--secondary-text-color);
 }
 .team-menu-text {
+  margin-bottom: 16px;
+
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
 }
+.social-list {
+  display: flex;
+  justify-content: center;
+}
 
+.social-item {
+  width: 44px;
+  height: 44px;
+}
+.social-item:not(:last-child) {
+  margin-right: 10px;
+}
+.social-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  background-color: var(--white-color);
+}
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--accent-color);
+}
+.social-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--icon-color);
+}
+.social-link:hover .social-icon,
+.social-link:focus .social-icon {
+  fill: var(--white-color);
+}
+
+/* Клиенты */
+
+.clients-title {
+  margin-bottom: 50px;
+}
+.clients-list {
+  --item-num: 6;
+}
+.clients-item {
+  height: 92px;
+}
+
+.clients-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--icon-color);
+  border-radius: 4px;
+}
+.clients-link:hover,
+.clients-link:focus {
+  border-color: var(--accent-color);
+}
+.clients-icon {
+  fill: var(--icon-color);
+}
+.clients-link:hover .clients-icon,
+.clients-link:focus .clients-icon {
+  fill: var(--accent-color);
+}
 /* footer */
 
 .footer {
@@ -256,6 +354,13 @@ img {
 
   /* Чтобы видеть белый цвет текста */
   background-color: var(--primary-bg-color);
+}
+.flex-footer {
+  display: flex;
+  align-items: baseline;
+}
+.flex-footer > *:first-child {
+  margin-right: 70px;
 }
 .footer .logo {
   display: block;
@@ -288,7 +393,22 @@ img {
 .footer-contacts-nav-link:hover {
   color: var(--accent-color);
 }
+.join-title {
+  display: inline-block;
+  margin-bottom: 20px;
 
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+.join-link {
+  background-color: var(--icon-join-bg-color);
+}
+.join-icon {
+  fill: var(--white-color);
+}
 /* portfolio */
 .portfolio-filter {
   display: flex;
@@ -326,7 +446,11 @@ img {
 .portfolio-work {
   --item-num: 3;
 }
-
+.portfolio-work > *:hover,
+.portfolio-work > *:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 .portfolio-content {
   padding: 20px 24px;
   border-right: 1px solid var(--secondary-border-color);
